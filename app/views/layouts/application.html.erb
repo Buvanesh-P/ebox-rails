@@ -11,6 +11,27 @@
   </head>
 
   <body>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-3">
+  <%if !session[:user_id].nil?%>
+  <%end%>
+  </div>
+  <div class="col-md-9">
+  <%if alert.nil?%>
+  <div class="empty" role="alert"></div>
+   <% else %>
+  <div class="alert alert-danger" role="alert"><%= alert %> </div>
+  <% end %>
+
+  <%if notice.nil?%>
+  <div class="empty"></div>
+  <% else %>
+    <div class="alert alert-success" role="alert"><%= notice %> </div>
+  <% end %>
     <%= yield %>
+    </div>
+    </div>
+    </div>
   </body>
 </html>
