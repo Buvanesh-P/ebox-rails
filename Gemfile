@@ -74,3 +74,7 @@ end
 gem 'dotenv-rails'
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
+
+gem "jquery-rails"
+gem "bootstrap"
+gem "sassc-rails"
