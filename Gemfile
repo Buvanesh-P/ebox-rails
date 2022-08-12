@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'dotenv-rails'
+
+gem 'devise', github: 'heartcombo/devise', branch: 'main'
