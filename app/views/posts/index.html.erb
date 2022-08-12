@@ -1,0 +1,24 @@
+
+<h1>Feed</h1>
+<%= link_to "Add New post", new_post_path, class:'btn btn-outline-success' %>
+<div id="posts" class="mt-2">
+  <% @posts.each do |post| %>
+    <div class="card mt-2">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+              <%= render post %>
+          </div>
+          <div class="col-md-2">
+              <%= link_to "View", post %>
+          </div>
+      </div>
+    </div>
+    </div>
+    
+  <% end %>
+</div>
+
+
+
+
