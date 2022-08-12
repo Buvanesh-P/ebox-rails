@@ -14,7 +14,8 @@
   <div class="container">
   <div class="row">
   <div class="col-md-3">
-  <%if !session[:user_id].nil?%>
+  <%if user_signed_in?%>
+  <%= render('layouts/navbar')%>
   <%end%>
   </div>
   <div class="col-md-9">
