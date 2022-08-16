@@ -1,21 +1,35 @@
 
-<h1>Feed</h1>
+<h1>Feeds</h1>
 <%= link_to "Add New post", new_post_path, class:'btn btn-outline-success' %>
 <div id="posts" class="mt-2">
   <% @posts.each do |post| %>
-    <div class="card mt-2">
+    <div class="card mt-5">
+        <div class="card-title">
+          <div class="row">      
+             <div class="col-md-10">
+                <img src="https://picsum.photos/200" class="rounded-circle" alt="" width="50" height="50"> 
+                    <%= post.user.email %></div> <div class="col-md-2">
+                     <%if post.users_id == current_user.id %>
+                      <%= link_to "action", post %>
+                     <%end%>
+             </div>
+          </div>   
+          </div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-10">
               <%= render post %>
-          </div>
-          <div class="col-md-2">
-          <%if post.users_id == current_user.id %>
-              <%= link_to "view", post %>
-          <%end%>
-          </div>
+          </div> 
       </div>
     </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-outline-danger">Like</button>
+    <button type="button" class="btn btn-outline-secondary">Comment</button>
+    <button type="button" class="btn btn-outline-primary">Share</button>
+  </div>
+  
+</div>
     </div>
     
   <% end %>
