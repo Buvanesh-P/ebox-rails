@@ -1,0 +1,53 @@
+<h1>Update my info</h1>
+    <%= form_with model: @userdata, url: user_update_path , html: { data: { turbo: false} }, method:'post', multipart: true do |form| %>
+    <div class="row">
+        <div class="col-md-6">
+        
+        <%= form.label "Profile Picture" %><br>
+        <%= form.file_field :profile, class:"form-control-file"%>
+        <br>
+
+        <%= form.label "Full Name" %>
+        <%= form.text_field :fullname, class: "form-control"  %>
+        
+        <%= form.label "Address" %>
+        <%= form.text_area :address, class:"form-control" %>
+        
+        <%= form.label "City" %>        
+        <%= form.text_field :city, class:"form-control" %>
+        
+        <%= form.label "Designation" %>
+        <%= form.text_field :designation, class:"form-control" %>
+        
+        <%= form.label "Phone" %>
+        <%= form.text_field :phone, class:"form-control" %>
+        
+        <%= form.label "Date of Joining" %>
+        <%= form.date_field :doj, class:"form-control" %>
+        </div>
+
+        <div class="col-md-6">
+        
+        <%= form.label "Date of Birth" %>
+        <%= form.date_field :dob, class:"form-control" %>
+        
+        <%= form.label "Blood Group" %>
+        <%= form.text_field :blood_group, class:"form-control" %>
+        
+        <%= form.label "Department" %>
+        <%= form.text_field :department, class:"form-control" %>
+        
+        <%= form.label "Emergency Number" %>
+        <%= form.text_field :emergency_number, class:"form-control" %>
+        
+        <%= form.label "Employee Number" %>
+        <%= form.text_field :emp_id, class:"form-control" , value: "EMP#{current_user.id}"%>
+
+        <%= form.hidden_field :users_id, value:current_user.id%>
+
+        <%= form.submit "Update", class:'mt-2 btn btn-success'%>
+        </div>
+    </div>
+        
+        
+    <%end %>

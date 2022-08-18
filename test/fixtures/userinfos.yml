@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fullname: MyString
+  address: MyString
+  city: MyString
+  designation: MyString
+  phone: MyString
+  emp_id: MyString
+  emergency_number: MyString
+  doj: 2022-08-16
+  blood_group: MyString
+  department: MyString
+  dob: 2022-08-16
+  users_id: MyString
+
+two:
+  fullname: MyString
+  address: MyString
+  city: MyString
+  designation: MyString
+  phone: MyString
+  emp_id: MyString
+  emergency_number: MyString
+  doj: 2022-08-16
+  blood_group: MyString
+  department: MyString
+  dob: 2022-08-16
+  users_id: MyString
