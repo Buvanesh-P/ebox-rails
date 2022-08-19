@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :set_post, :is_registered,only: %i[ show edit update destroy ]
+  before_action :is_registered
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -57,6 +57,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def is_registered
+    @user_info = Userinfo.find_by(users_id: current_user.id)
+    if @user_info.nil?
+      redirect_to user_index_path, alert: "Please complete your profile"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -67,4 +74,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :users_id, :content)
     end
+    
 end
