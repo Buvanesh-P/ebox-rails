@@ -10,7 +10,16 @@
     </div>
     
     <div class="card mt-2">
-    <div class="card-title">  <img src="https://picsum.photos/200" class="rounded-circle" alt="Cinque Terre" width="50" height="50"> <%= @post.user.email %></div>
+    <div class="card-title">  
+    <% if @post.userinfo.present? %>
+             <%= image_tag(@post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
+             <%else%>
+            <%= image_tag("/no-profile.jpg",style:"width:50px;height:50px",class:"rounded-circle")%>
+             <%end%>
+             <% if @post.userinfo.present? %>
+                   <b> <%= @post.userinfo.fullname %></b>
+                   <% end %>
+    </div>
       <div class="card-body">
         <%= render @post %>
       </div>

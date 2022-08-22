@@ -1,4 +1,44 @@
 <div id="<%= dom_id post %>">
-    <%= post.title %>
-    <%= post.content%>
+    <!--   <%= post.title %>
+    <%= post.content%>-->
+    <div class="card mt-5">
+        <div class="card-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <% if post.userinfo.present? %>
+                        <%= image_tag(post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
+                    <%else%>
+                        <%= image_tag("/no-profile.jpg",style:"width:50px;height:50px",class:"rounded-circle")%>
+                    <%end%>
+                                        
+                    <% if post.userinfo.present? %>
+                        <b>
+                            <%= post.userinfo.fullname %>
+                        </b>
+                    <% end %>
+                </div>
+
+                <div class="col-md-2">
+                    <%if post.users_id==current_user.id %>
+                        <%= link_to "action" , post %>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <%= post.content%>
+                </div>
+            </div>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-danger">Like</button>
+                    <button type="button" class="btn btn-outline-secondary">Comment</button>
+                    <button type="button" class="btn btn-outline-primary">Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

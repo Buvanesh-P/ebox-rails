@@ -2,43 +2,8 @@
 <h1>Feeds</h1>
 <%= link_to "Add New post", new_post_path, class:'btn btn-outline-success' %>
 <div id="posts" class="mt-2">
-  <% @posts.each do |post| %>
-    <div class="card mt-5">
-        <div class="card-title">
-          <div class="row">      
-             <div class="col-md-10">
-             <% if post.userinfo.profile.present? %>
-             <%= image_tag(post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
-             <%else%>
-            <%= image_tag("/no-profile.jpg",style:"width:50px;height:50px",class:"rounded-circle")%>
-             <%end%>
-                   <b> <%= post.userinfo.fullname%></b>
-                   </div> 
-                   <div class="col-md-2">
-                     <%if post.users_id == current_user.id %>
-                      <%= link_to "action", post %>
-                     <%end%>
-             </div>
-          </div>   
-          </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-10">
-              <%= render post %>
-          </div> 
-      </div>
-    </div>
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-outline-danger">Like</button>
-    <button type="button" class="btn btn-outline-secondary">Comment</button>
-    <button type="button" class="btn btn-outline-primary">Share</button>
-  </div>
-  
-</div>
-    </div>
-    
-  <% end %>
+  <%= render partial: "post", collection: @posts %>
+  <%= render partial: "next_page" %>
 </div>
 
 

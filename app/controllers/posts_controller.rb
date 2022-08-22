@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :is_registered
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+  #  @posts = Post.all.order("created_at DESC")
+  @pagy, @posts = pagy(Post.order(created_at: :desc), items: 1)
+  render "scrollable_post" if params[:page]
   end
 
   # GET /posts/1 or /posts/1.json
