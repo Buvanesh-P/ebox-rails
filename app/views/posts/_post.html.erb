@@ -32,10 +32,10 @@
                     <%= post.content%>
                 </div>
             </div>
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-toolbar actions-tab" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
                     <button type="button" class="btn btn-outline-danger">Like</button>
-                    <button type="button" class="btn btn-outline-secondary">Comment</button>
+                    <%= link_to "Comment", post_path(post.id), class:"btn btn-outline-secondary"%>
                     <button type="button" class="btn btn-outline-primary">Share</button>
                 </div>
             </div>
