@@ -1,0 +1,28 @@
+<div class="container mt-2 comment-<%= comment.id %>">
+<div class="card">
+    <div class="title">
+             <% if comment.userinfo.present? %>
+                <%= image_tag(comment.userinfo.profile,style:"width:30px;height:30px",class:"rounded-circle")%>
+             <%else%>
+                <%= image_tag("/no-profile.jpg",style:"width:30px;height:30px",class:"rounded-circle")%>
+             <%end%>
+            
+             <% if comment.userinfo.present? %>
+                   <b>     <%= comment.userinfo.fullname %> </b>
+             <% end %>
+
+        <div class="d-flex flex-row-reverse">
+            <% if current_user == comment.user %>
+            <%= button_to "Delete", [post, comment], class:"pt-2 btn btn-danger", method: :delete %>
+          <% end %>
+          <span class="p-2"><%= time_ago_in_words(comment.created_at) %> ago</span>
+
+      </div>
+    </div>
+    
+  <div class="card-body">
+    <%= comment.content%>
+  </div>
+</div>
+    
+</div>

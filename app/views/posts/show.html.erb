@@ -1,34 +1,24 @@
-
-
 <div class="container">
   <div class="mt-2 row">
     <div class="col-md-10">
       <%= link_to "Back", posts_path %>
     </div>
-    <div class="col-md-2 float-end">
-      <%= link_to "Edit", edit_post_path(@post), class:'btn btn-outline-success' %>
+    <div class="col-md-2 d-flex flex-row-reverse">
+      <%= link_to "Edit", edit_post_path(@post), class:' pt-2 btn btn-outline-success' %> &nbsp;
+      <%= button_to "Delete", @post, method: :delete, class:'pt-2 btn btn-outline-danger' %>
     </div>
-    
-    <div class="card mt-2">
-    <div class="card-title">  
-    <% if @post.userinfo.present? %>
-             <%= image_tag(@post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
-             <%else%>
-            <%= image_tag("/no-profile.jpg",style:"width:50px;height:50px",class:"rounded-circle")%>
-             <%end%>
-             <% if @post.userinfo.present? %>
-                   <b> <%= @post.userinfo.fullname %></b>
-                   <% end %>
-    </div>
-      <div class="card-body">
-        <%= render @post %>
-      </div>
+        <%= render @post %>    
     </div>
     
   </div>
+  
+   
 
-  <div class="float-end mt-2">
-        <%= button_to "Delete", @post, method: :delete, class:'btn btn-outline-danger' %>
+    <div class="container mt-2">
+        <% @comments.each do |comment| %>
+          <%= render 'comments/comment', post: @post, comment: comment%>
+        <% end %>
+          <%= render 'comments/form',post: @post%>
   </div>
 
 </div>
