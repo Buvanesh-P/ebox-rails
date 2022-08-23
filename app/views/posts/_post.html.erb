@@ -32,10 +32,19 @@
                     <%= post.content%>
                 </div>
             </div>
-            <div class="btn-toolbar actions-tab" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-danger">Like</button>
-                    <%= link_to "Comment", post_path(post.id), class:"btn btn-outline-secondary"%>
+            <div class="row">
+                <div class="col-md-4">
+                <% pre_like = post.like.find { |like| like.user_id == current_user.id}
+                       like_class = pre_like ? 'danger' : 'outline-danger'%>
+                    <%= link_to "#{post.like.count} Like", post_likes_path(post), class:"btn btn-#{like_class}", method: :post %>
+                    <% if post.like.count > 0 %>
+                        <%= post.like.last.userinfo.fullname%> and others
+                    <% end %>
+                </div>
+                <div class="col-md-4">
+                    <%= link_to "#{post.comment.count} Comment", post_path(post.id), class:"btn btn-outline-secondary"%>
+                </div>
+                <div class="col-md-4">
                     <button type="button" class="btn btn-outline-primary">Share</button>
                 </div>
             </div>

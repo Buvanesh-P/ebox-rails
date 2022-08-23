@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'user/update'
   resources :posts do
     resources :comments
+    resources :likes
   end
   root 'posts#index'
   devise_for :users

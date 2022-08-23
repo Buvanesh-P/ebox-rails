@@ -3,4 +3,6 @@ class Post < ApplicationRecord
     has_rich_text :content
     belongs_to :userinfo, class_name: "Userinfo", foreign_key: "users_id"
     has_many :comment, dependent: :destroy
+    has_many :like, dependent: :destroy
+
 end
