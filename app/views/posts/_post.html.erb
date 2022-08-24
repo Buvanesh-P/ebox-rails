@@ -20,7 +20,7 @@
 
                 <div class="col-md-2">
                     <%if post.users_id==current_user.id %>
-                        <%= link_to "action" , post %>
+                        <%= link_to "view" , post, class:"btn btn-success" %>
                     <%end%>
                 </div>
             </div>
@@ -38,8 +38,10 @@
                 <% pre_like = post.like.find { |like| like.user_id == current_user.id}
                        like_class = pre_like ? 'danger' : 'outline-danger'%>
                     <%= link_to "Like", post_likes_path(post), class:"btn btn-#{like_class}", method: :post %>
-                    <% if post.like.count > 0 %>
-                         <%= link_to "#{post.like.last.userinfo.fullname} and #{post.like.count} others", post_likes_path(post.id),class:"like-users-list" %>
+                    <% if post.like.count > 1 %>
+                         <%= link_to "#{post.like.last.userinfo.fullname} and #{post.like.count-1} others", post_likes_path(post.id),class:"like-users-list" %>
+                    <% elsif post.like.count == 1 %>
+                        <%= link_to "#{post.like.last.userinfo.fullname} liked", post_likes_path(post.id),class:"like-users-list" %>
                     <% end %>
                 </div>
                 <div class="col-md-4">

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="mt-2 row">
     <div class="col-md-10">
-      <%= link_to "Back", posts_path %>
+      <%= link_to "Back", posts_path,class:"btn btn-primary" %>
     </div>
     <div class="col-md-2 d-flex flex-row-reverse">
-      <%= link_to "Edit", edit_post_path(@post), class:' pt-2 btn btn-outline-success' %> &nbsp;
+      <%= link_to "Edit", edit_post_path(@post), class:' pt-2 btn btn-outline-secondary' %> &nbsp;
       <%= button_to "Delete", @post, method: :delete, class:'pt-2 btn btn-outline-danger' %>
     </div>
         <%= render @post %>    
@@ -12,8 +12,6 @@
     
   </div>
   
-   
-
     <div class="container mt-2">
         <% @comments.each do |comment| %>
           <%= render 'comments/comment', post: @post, comment: comment%>

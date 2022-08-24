@@ -1,5 +1,6 @@
    <div class="container mt-5">
-   <h5>People Liked the post</h5>
+   <%= link_to "Back",post_path(@post.id),class:"btn btn-primary"%>
+   <h5>People who Liked the post</h5>
   <table class="table">
     <thead>
     <tr>
@@ -15,7 +16,7 @@
       <%= image_tag(like.userinfo.profile,style:"width:80px;height:80px",class:'rounded-circle')%>
       </th>
       <td> <%= like.userinfo.fullname %></td>
-      <td> <%= link_to "View", user_path(like.user_id)%> </td>
+      <td> <%= link_to "View", user_path(like.user_id),class:"btn btn-success"%> </td>
     </tr>
   </tbody>
 <% end %>
