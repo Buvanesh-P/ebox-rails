@@ -32,13 +32,14 @@
                     <%= post.content%>
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-md-4">
                 <% pre_like = post.like.find { |like| like.user_id == current_user.id}
                        like_class = pre_like ? 'danger' : 'outline-danger'%>
-                    <%= link_to "#{post.like.count} Like", post_likes_path(post), class:"btn btn-#{like_class}", method: :post %>
+                    <%= link_to "Like", post_likes_path(post), class:"btn btn-#{like_class}", method: :post %>
                     <% if post.like.count > 0 %>
-                        <%= post.like.last.userinfo.fullname%> and others
+                         <%= link_to "#{post.like.last.userinfo.fullname} and #{post.like.count} others", post_likes_path(post.id),class:"like-users-list" %>
                     <% end %>
                 </div>
                 <div class="col-md-4">

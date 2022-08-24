@@ -1,0 +1,26 @@
+   <div class="container mt-5">
+   <h5>People Liked the post</h5>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+<% @like.each do |like| %>
+  <tbody>
+    <tr>
+      <th>
+      <%= image_tag(like.userinfo.profile,style:"width:80px;height:80px",class:'rounded-circle')%>
+      </th>
+      <td> <%= like.userinfo.fullname %></td>
+      <td> <%= link_to "View", user_path(like.user_id)%> </td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
+
+   </div>
+   
+    

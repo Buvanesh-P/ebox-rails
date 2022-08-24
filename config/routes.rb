@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'user/index'
   get 'user/edit'
   post 'user/update'
+  get '/user/:user_id',to: "user#show",as: "user"
   resources :posts do
     resources :comments
     resources :likes

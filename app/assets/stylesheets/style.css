@@ -23,6 +23,13 @@
     color: black;
 
   }
+
+  .like-users-list{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
   
   .main {
     margin-left: 160px; /* Same as the width of the sidenav */

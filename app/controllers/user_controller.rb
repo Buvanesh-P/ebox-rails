@@ -22,6 +22,9 @@ class UserController < ApplicationController
     end
   end
 
+  def show
+    @get_user = Userinfo.find_by(users_id: params[:user_id])
+  end
 
   private
   def user_params
