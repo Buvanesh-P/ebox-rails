@@ -3,7 +3,16 @@ class OkrsController < ApplicationController
 
   # GET /okrs or /okrs.json
   def index
-    @okrs = Okr.all
+    if params.has_key?(:s_filter)
+      userinfo_ids = Userinfo.where("fullname LIKE ?", "%#{params[:s_filter]}%")
+      filtered = Okr.where(userinfos_id: userinfo_ids)
+    elsif params.has_key?(:m_filter)
+      filtered = Okr.where("month LIKE ?", "%#{params[:m_filter]}%")
+    else
+      filtered = Okr.all
+    end
+
+    @pagy,@okrs = pagy(filtered.all.order(created_at: :desc),items:5)
   end
 
   # GET /okrs/1 or /okrs/1.json

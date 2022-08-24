@@ -1,5 +1,16 @@
 <h1>OKR</h1>
-<%= link_to "Add New", new_okr_path,class:"btn btn-success" %>
+<%= link_to "Add New", new_okr_path,class:"btn btn-success" %><br>
+<div class="d-flex flex-row-reverse">
+      <%= form_with url: okrs_path, method: :get, id: "month_form",data: { controller: "form", action: "input->form#submit",  turbo_action: "advance" } do %>
+        <%= month_field "m_filter", nil,value:"2022-08", class: "mt-2 py-1", id:"filter_month" %><br>
+                <%= label :m_filter,"Filter by Month-Year"%>
+      <% end %>
+      &nbsp;
+      <%= form_with url: okrs_path, method: :get,id: "search_form", data: { controller: "form", action: "input->form#submit",  turbo_action: "advance" } do %>
+        <%= text_field_tag "s_filter", nil,placeholder: "Search by Name", class: "inline-block  mt-2 border-gray-200 outline-none px-3 py-1  w-full",id:"search_filter" %>
+      <% end %>
+      </div>
+  <button class="btn btn btn-warning btn-sm mt-3" id="clear-search">Clear Filters</button>
 <table class="table table-bordered mt-4">
   <thead>
     <tr>
@@ -18,11 +29,24 @@
       <td><%= link_to "View", okr,class:"btn btn-primary" %></td>
     </tr>
     
-   
   <% end %>
 </div>
 
   </tbody>
 </table>
+    <%== pagy_nav(@pagy, link_extra: 'data-turbo-action="advance"') %>
+
 
     
+<script type="module">
+
+$("#filter_month").change(function(){
+ $("#month_form").submit();
+});
+
+$("#clear-search").click(function(){
+ $("#filter_month").val('')
+ $('#search-filter').val('')
+ $("#search_form").submit();
+})
+</script>
