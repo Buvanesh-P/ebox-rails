@@ -1,0 +1,25 @@
+<%= form_with(model: okr) do |form| %>
+  <% if okr.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(okr.errors.count, "error") %> prohibited this okr from being saved:</h2>
+      <ul>
+        <% okr.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= form.hidden_field :users_id, value: current_user.id %>
+    <%= form.hidden_field :userinfos_id,value: current_user.id%>
+  <div>
+    <% month_year = [Date.today.year ,  format('%02d', Date.today.month)].join('-') %>
+            <%= form.label :month, "OKR for:" %>
+              <%= form.month_field :month, value: month_year,class: "form-control mt-2" %>
+            <%= form.label :okr_content, "My OKR:" %>
+              <%= form.rich_text_area :okr_content,class:"mt-2" %>
+  </div>
+  <div>
+  <br>
+    <%= form.submit %>
+  </div>
+<% end %>

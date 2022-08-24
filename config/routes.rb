@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :okrs
   get 'user/index'
   get 'user/edit'
   post 'user/update'

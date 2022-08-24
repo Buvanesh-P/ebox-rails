@@ -1,0 +1,27 @@
+<div id="<%= dom_id @okr %>">
+    <div class="container px-4 mt-5">
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-3 bg-light">
+                    <% if@okr.userinfo.profile?%>
+                        <%= image_tag(@okr.userinfo.profile,style:"width:150px;height:150px",class:'rounded-circle')%>
+                    <%else%>
+                        <%= image_tag("/no-profile.jpg",style:"width:150px;height:150px",class:'rounded-circle') %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-light"><b>Name - </b><%= @okr.userinfo.fullname %></div>
+                <div class="p-3 border bg-light mt-1"><b>Designation - </b><%= @okr.userinfo.designation %></div>
+                <div class="p-3 border bg-light mt-1"><b>OKR for - </b><%= @okr.month %></div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+                <%= @okr.okr_content%> 
+            </div>
+        </div>
+    </div>
+</div>

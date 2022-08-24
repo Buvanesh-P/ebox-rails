@@ -1,6 +1,6 @@
 <div class="sidenav">
 <%= link_to "logout", destroy_user_session_path, method: "delete"%>
   <%= link_to "Feed",posts_path,method: "get"%>
-  <%= link_to "OKR"%>
+  <%= link_to "OKR", okrs_path,method:"get"%>
   <%= link_to "My Account",user_index_path,method: "get"%>
 </div>

@@ -30,7 +30,13 @@
     font-weight: bold;
   }
   
-  
+  .xdsoft_calendar{
+    display: none;
+
+  } 
+  .xdsoft_timepicker {
+    display: none;
+  }
   .main {
     margin-left: 160px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */

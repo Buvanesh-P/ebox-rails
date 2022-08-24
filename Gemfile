@@ -79,3 +79,4 @@ gem "jquery-rails"
 gem "bootstrap"
 gem "sassc-rails"
 gem "pagy", "~> 5.10"
+gem 'jquery-datetimepicker-rails'
