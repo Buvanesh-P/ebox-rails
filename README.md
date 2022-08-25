@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This App can be used for Posts and OKR management with user profile
 
-Things you may want to cover:
+Functionalities covered in 
 
-* Ruby version
+* User Account Management 
+* Post Management
+* OKR Management
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Build with Rails 7
