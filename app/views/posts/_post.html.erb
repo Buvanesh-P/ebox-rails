@@ -2,7 +2,7 @@
     <!--   <%= post.title %>
     <%= post.content%>-->
     
-    <div class="card mt-5"><%= current_page %>
+    <div class="card mt-5">
 
         <div class="card-title">
             <div class="row">
@@ -37,7 +37,7 @@
                 <div class="col-md-4">
                 <% pre_like = post.like.find { |like| like.user_id == current_user.id}
                        like_class = pre_like ? 'danger' : 'outline-danger'%>
-                    <%= link_to "Like", post_likes_path(post), class:"btn btn-#{like_class}", data:{turbo_method: "post"} %>
+                    <%= link_to "Like", post_likes_path(post), class:"btn btn-#{like_class}",method: :post %>
                     <% if post.like.count > 1 %>
                          <%= link_to "#{post.like.last.userinfo.fullname} and #{post.like.count-1} others", post_likes_path(post.id),class:"like-users-list" %>
                     <% elsif post.like.count == 1 %>
