@@ -2,7 +2,7 @@
 <%= link_to "Add New", new_okr_path,class:"btn btn-success" %><br>
 <div class="d-flex flex-row-reverse">
       <%= form_with url: okrs_path, method: :get, id: "month_form",data: { controller: "form", action: "input->form#submit",  turbo_action: "advance" } do %>
-        <%= month_field "m_filter", nil, class: "mt-2 py-1", id:"filter_month" %><br>
+        <%= month_field "m_filter", nil, class: "mt-2 py-1", id:"filter_month",name:"m_filter" %><br>
                 <%= label :m_filter,"Filter by Month-Year"%>
       <% end %>
       &nbsp;
