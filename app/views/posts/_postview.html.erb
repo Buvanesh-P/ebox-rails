@@ -1,0 +1,50 @@
+<div id="<%= dom_id @post %>">
+    
+    <div class="card mt-5">
+
+        <div class="card-title">
+            <div class="row">
+                <div class="col-md-10">
+                    <% if @post.userinfo.present? %>
+                        <%= image_tag(@post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
+                    <%else%>
+                        <%= image_tag("/no-profile.jpg",style:"width:50px;height:50px",class:"rounded-circle")%>
+                    <%end%>
+                                        
+                    <% if @post.userinfo.present? %>
+                        <b>
+                            <%= @post.userinfo.fullname %>
+                        </b>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <%= @post.content%>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                <% pre_like = @post.like.find { |like| like.user_id == current_user.id}
+                       like_class = pre_like ? 'danger' : 'outline-danger'%>
+                    <%= link_to "Like", post_likes_path(@post), class:"btn btn-#{like_class}",method: :post %>
+                    <% if @post.like.count > 1 %>
+                         <%= link_to "#{@post.like.last.userinfo.fullname} and #{@post.like.count-1} others", post_likes_path(post.id),class:"like-users-list" %>
+                    <% elsif @post.like.count == 1 %>
+                        <%= link_to "#{@post.like.last.userinfo.fullname} liked", post_likes_path(@post.id),class:"like-users-list" %>
+                    <% end %>
+                </div>
+                <div class="col-md-4">
+                    <%= link_to "#{@post.comment.count} Comment", post_path(@post.id), class:"btn btn-outline-secondary"%>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-outline-primary">Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
