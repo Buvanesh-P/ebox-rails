@@ -1,6 +1,17 @@
-<div class="sidenav">
-<%= link_to "logout", destroy_user_session_path, method: "delete"%>
-  <%= link_to "Feed",posts_path,method: "get"%>
-  <%= link_to "OKR", okrs_path,method:"get"%>
-  <%= link_to "My Account",user_index_path,method: "get"%>
-</div>
+  <nav class="top_navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><%= link_to "Feed",posts_path,method: "get"%></li>
+                <li>  <%= link_to "OKR", okrs_path,method:"get"%></li>
+                <li>  <%= link_to "My Account",user_index_path,method: "get"%></li>
+                <li><%= link_to "logout", destroy_user_session_path, method: "delete"%></li>
+            </ul>
+            <h1 class="logo">Eboxapp</h1>
+        </div>
+    </nav>
