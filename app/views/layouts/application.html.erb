@@ -11,15 +11,19 @@
   </head>
 
   <body>
-  <%if user_signed_in?%>
+  
+  <div class="container-fluid">
+  <div class="row">
+  <%if user_signed_in?%>  
   <%= render('layouts/navbar')%>
   <%end%>
-  <div class="container">
-  <div class="row">
-  <div class="col-md-3">
-  
   </div>
-  <div class="col-md-9">
+  </div>
+
+  <main class="container main-content">
+  <div class="row">
+  
+  <div class="col-md-12 mt-2">
   <%if alert.nil?%>
   <div class="empty" role="alert"></div>
    <% else %>
@@ -34,6 +38,6 @@
     <%= yield %>
     </div>
     </div>
-    </div>
+    </main>
   </body>
 </html>
