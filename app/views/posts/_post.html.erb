@@ -37,7 +37,7 @@
                 <div class="col-md-4">
                 <% pre_like = post.like.find { |like| like.user_id == current_user.id}
                        like_class = pre_like ? 'danger' : 'outline-danger'%>
-                    <%= link_to "Like", post_likes_path(post), class:"btn btn-#{like_class}",method: :post %>
+                    <button type="button" id="like_button_<%= post.id %>" class="btn like-action btn-<%=like_class%>" data-id="<%= post.id%>">like</button>
                     <% if post.like.count > 1 %>
                          <%= link_to "#{post.like.last.userinfo.fullname} and #{post.like.count-1} others", post_likes_path(post.id),class:"like-users-list" %>
                     <% elsif post.like.count == 1 %>
@@ -54,3 +54,4 @@
         </div>
     </div>
 </div>
+

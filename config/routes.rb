@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   root 'posts#index'
   devise_for :users
+
+  post '/ajaxlikes',to: "likes#create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

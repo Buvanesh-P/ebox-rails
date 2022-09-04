@@ -8,4 +8,28 @@
 
 
 
+<script type="module">
+$('body').on('click','.like-action', function(e){
+   var postId = $(this).data('id');
+    $.ajax({
+        url: "/ajaxlikes",
+        type: "post",
+        data: {
+            post_id : postId
+            },
+        dataType: "json",
+        success: function(data) {
+          if(data.status=="created"){
+            $("#like_button_"+data.post_id).removeClass('btn-outline-danger')
+            $("#like_button_"+data.post_id).addClass('btn-danger')
+          }else{
+            $("#like_button_"+data.post_id).removeClass('btn-danger')
+            $("#like_button_"+data.post_id).addClass('btn-outline-danger')
+          }
+        },
+        error: function(data) {
 
+        }
+    })
+})
+</script>

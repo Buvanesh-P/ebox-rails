@@ -6,10 +6,18 @@ class LikesController < ApplicationController
         if already_liked?
            @like_instance = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
            @like_instance.destroy
+           render json: {
+                status: 'deleted',
+                post_id: params[:post_id]
+        }
         else
             @post.like.create(user_id: current_user.id,userinfo_id: current_user.id)
+            render json: {
+                status: 'created',
+                post_id: params[:post_id]
+        }
         end
-        redirect_to posts_path
+                
     end
 
     def index
