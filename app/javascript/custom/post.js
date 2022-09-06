@@ -23,3 +23,11 @@ $('body').on('click','.like-action', function(e){
          }
      })
  })
+
+ $('body').on('click','.share-icon', function () {
+    var share_url = $(this).data('url')
+    $('.facebook-icon').attr("href","https://www.facebook.com/sharer/sharer.php?u="+share_url+"")
+    $('.twitter-icon').attr("href","https://twitter.com/intent/tweet?text="+share_url+"")
+    $('.linkedin-icon').attr("href","https://www.linkedin.com/shareArticle?mini=true&url="+share_url+"&title=&summary=&source=")
+    $("#exampleModal").modal('show');
+  })

@@ -3,7 +3,6 @@
   import 'custom/post';
   </script>
 <% end %>
-
 <h1>Feeds</h1>
 <%= link_to new_post_path, class:'btn btn-outline-success' do%>
 <i class="fa-regular fa-plus"></i> New Post
@@ -11,4 +10,26 @@
 <div id="posts" class="mt-2">
   <%= render partial: "post", collection: @posts %>
   <%= render partial: "next_page" %>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share Post Via</h5>
+      </div>
+      <div class="modal-body">
+        <a class="facebook-icon social-anchor" target="_blank" href="#">
+                <i class="fa-brands social-icons fa-facebook"></i>
+        </a>
+        <a class="twitter-icon social-anchor" target="_blank" href="#">
+        <i class="fa-brands social-icons twiter-icon fa-twitter"></i>
+        </a>
+        <a class="linkedin-icon social-anchor" target="_blank" href="#">
+        <i class="fa-brands social-icons linkedin-icon fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
