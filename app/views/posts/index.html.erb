@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <script type="module">
+  import 'custom/post';
+  </script>
+<% end %>
 
 <h1>Feeds</h1>
 <%= link_to new_post_path, class:'btn btn-outline-success' do%>
@@ -7,33 +12,3 @@
   <%= render partial: "post", collection: @posts %>
   <%= render partial: "next_page" %>
 </div>
-
-
-
-<script type="module">
-$('body').on('click','.like-action', function(e){
-   var postId = $(this).data('id');
-    $.ajax({
-        url: "/ajaxlikes",
-        type: "post",
-        data: {
-            post_id : postId
-            },
-        dataType: "json",
-        success: function(data) {
-          if(data.status=="created"){
-            $("#like_button_"+data.post_id).removeClass('fa-regular')
-            $("#like_button_"+data.post_id).addClass('fa-solid')
-            $(".like_list_"+data.post_id).html(data.like_list)
-          }else{
-            $("#like_button_"+data.post_id).removeClass('fa-solid')
-            $("#like_button_"+data.post_id).addClass('fa-regular')
-            $(".like_list_"+data.post_id).html(data.like_list)
-          }
-        },
-        error: function(data) {
-
-        }
-    })
-})
-</script>
