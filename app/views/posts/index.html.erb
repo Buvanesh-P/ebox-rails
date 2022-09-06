@@ -1,6 +1,8 @@
 
 <h1>Feeds</h1>
-<%= link_to "Add New post", new_post_path, class:'btn btn-outline-success' %>
+<%= link_to new_post_path, class:'btn btn-outline-success' do%>
+<i class="fa-regular fa-plus"></i> New Post
+<%end%>
 <div id="posts" class="mt-2">
   <%= render partial: "post", collection: @posts %>
   <%= render partial: "next_page" %>
@@ -20,11 +22,13 @@ $('body').on('click','.like-action', function(e){
         dataType: "json",
         success: function(data) {
           if(data.status=="created"){
-            $("#like_button_"+data.post_id).removeClass('btn-outline-danger')
-            $("#like_button_"+data.post_id).addClass('btn-danger')
+            $("#like_button_"+data.post_id).removeClass('fa-regular')
+            $("#like_button_"+data.post_id).addClass('fa-solid')
+            $(".like_list_"+data.post_id).html(data.like_list)
           }else{
-            $("#like_button_"+data.post_id).removeClass('btn-danger')
-            $("#like_button_"+data.post_id).addClass('btn-outline-danger')
+            $("#like_button_"+data.post_id).removeClass('fa-solid')
+            $("#like_button_"+data.post_id).addClass('fa-regular')
+            $(".like_list_"+data.post_id).html(data.like_list)
           }
         },
         error: function(data) {

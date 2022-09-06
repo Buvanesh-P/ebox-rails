@@ -6,15 +6,30 @@ class LikesController < ApplicationController
         if already_liked?
            @like_instance = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
            @like_instance.destroy
+           like_content = ''
+            if@post.like.count > 1
+                like_content = "#{@post.like.last.userinfo.fullname} and #{(@post.like.count - 1)} other(s) liked"
+            elsif@post.like.count == 1
+                like_content = "#{@post.like.last.userinfo.fullname} liked"
+            end
            render json: {
                 status: 'deleted',
-                post_id: params[:post_id]
+                post_id: params[:post_id],
+                like_list: like_content
         }
         else
             @post.like.create(user_id: current_user.id,userinfo_id: current_user.id)
+            like_content = ''
+            if@post.like.count > 1
+                like_content = "You and #{(@post.like.count - 1)} other(s) liked"
+            else
+                like_content = "You liked"   
+            end
+            
             render json: {
                 status: 'created',
-                post_id: params[:post_id]
+                post_id: params[:post_id],
+                like_list: like_content
         }
         end
                 

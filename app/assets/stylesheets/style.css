@@ -1,3 +1,31 @@
 .main-content{
   padding: 55px;
 }
+
+.like-icon{
+  font-size: 30px;
+  color: #3A3A38;
+  cursor: pointer;
+}
+
+.comment-icon , .share-icon{
+  font-size: 30px;
+  color: #3A3A38;
+}
+
+.edit-post-icon{
+  font-size: 20px;
+  color: #3A3A38;
+  padding-top: 5px; 
+}
+
+.like-users-list{
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.comment-count{
+  color: #000000;
+}
+

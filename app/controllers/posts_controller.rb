@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comment.order(created_at: :desc)
-    @postview = 'posts/postview'
   end
 
   # GET /posts/new
