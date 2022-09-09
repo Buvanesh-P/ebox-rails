@@ -4,7 +4,7 @@ class OkrsController < ApplicationController
   # GET /okrs or /okrs.json
   def index
     if params.has_key?(:s_filter)
-      userinfo_ids = Userinfo.where("fullname LIKE ?", "%#{params[:s_filter]}%")
+      userinfo_ids = Userinfo.where("lower(fullname) LIKE ?", "%#{params[:s_filter].downcase}%")
       filtered = Okr.where(userinfos_id: userinfo_ids)
     elsif params.has_key?(:m_filter)
       filtered = Okr.where("month LIKE ?", "%#{params[:m_filter]}%")
