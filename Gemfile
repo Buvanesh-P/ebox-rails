@@ -81,3 +81,4 @@ gem "sassc-rails"
 gem "pagy", "~> 5.10"
 gem 'jquery-datetimepicker-rails'
 gem "font-awesome-sass", "~> 6.2.0"
+gem 'aws-sdk-s3', require: false
