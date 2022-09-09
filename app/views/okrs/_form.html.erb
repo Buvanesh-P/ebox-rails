@@ -14,11 +14,11 @@
   <div>
     <% month_year = [Date.today.year ,  format('%02d', Date.today.month)].join('-') %>
             <%= form.label :month, "OKR for:" %>
-              <%= form.month_field :month, value: month_year,class: "form-control mt-2" %>
+              <%= form.month_field :month, value: month_year,class: "reuired form-control mt-2" %>
             <%= form.label :okr_content, "My OKR:" %>
-              <%= form.rich_text_area :okr_content,class:"mt-2" %>
+              <%= form.rich_text_area :okr_content,class:"required-rich-text mt-2" %>
   </div>
-  <div>
+  <div class="submit-wrap">
   <br>
     <%= form.submit %>
   </div>
