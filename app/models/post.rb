@@ -4,5 +4,5 @@ class Post < ApplicationRecord
     belongs_to :userinfo, class_name: "Userinfo", foreign_key: "users_id"
     has_many :comment, dependent: :destroy
     has_many :like, dependent: :destroy
-    validates :title, presence:true
+    validates :title, presence: true
 end
