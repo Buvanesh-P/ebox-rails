@@ -5,7 +5,7 @@
     <div class="card mt-5">
 
         <div class="card-title">
-            <div class="row">
+            <div class="row row-block">
                 <div class="col-md-10">
                     <% if post.userinfo.present? %>
                         <%= image_tag(post.userinfo.profile,style:"width:50px;height:50px",class:"rounded-circle")%>
@@ -20,7 +20,7 @@
                     <% end %>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-2 edit-block">
                 <%if post.users_id==current_user.id %>
                         <%= link_to post do%>
                         <i class="fa-regular edit-post-icon fa-pen-to-square"></i>
@@ -38,7 +38,7 @@
             </div>
             <hr>
             
-            <div class="row">
+            <div class="row row-block">
                 <div class="col-md-4 actions-wrap justify-content-start" id="like_wrap_<%= post.id%>">
                     <% if post.like.exists?(user_id: current_user.id)%>
                         <% if post.like.count > 1 %>
@@ -60,25 +60,24 @@
                 </div>
 
                 <div class="col-md-4 actions-wrap justify-content-center">
-                    <span class="comment-count"><%= post.comment.count %> Comment(s)</span>
+                                    <span class="comment-count"><%= post.comment.count %> Comment(s)</span>
                 </div>
 
-                <div class="col-md-4 actions-wrap justify-content-end">
-
+                <div class="col-md-4 actions-wrap  justify-content-end">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 actions-wrap justify-content-start">
+            <div class="row row-block">
+                <div class="col-md-4 actions-wrap like-block justify-content-start">
                 <% pre_like = post.like.find { |like| like.user_id == current_user.id}
                        like_class = pre_like ? 'fa-solid' : 'fa-regular'%>
                     <i class="<%=like_class%> fa-heart like-action like-icon" id="like_button_<%= post.id %>" data-id="<%= post.id%>"></i>
                 </div>
-                <div class="col-md-4 actions-wrap justify-content-center">                    
+                <div class="col-md-4 actions-wrap comment-block justify-content-center">                    
                     <%= link_to post_path(post.id) do %>
                         <i class="fa-regular fa-sharp comment-icon fa-comment"></i>
                     <% end %>
                 </div>
-                <div class="col-md-4 actions-wrap justify-content-end">
+                <div class="col-md-4 actions-wrap share-block justify-content-end">
                     <i class="fa-sharp share-icon fa-solid fa-share" data-url="<%= post_url(post.id)%>"></i>
                 </div>
             </div>

@@ -28,6 +28,7 @@
 
 .comment-count{
   color: #000000;
+  padding-left: 80px;
 }
 
 .social-icons{
@@ -90,4 +91,14 @@
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #198754;
     --bs-btn-disabled-border-color: #198754;
+}
+
+@media only screen and (max-width: 600px) {
+  .row-block > *{
+    width: auto !important;
+  }
+  .edit-block{
+    padding-left: 120px !important;
+  }
+  
 }
