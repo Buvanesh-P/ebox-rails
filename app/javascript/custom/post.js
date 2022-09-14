@@ -1,5 +1,5 @@
-  
-  if ($('.like-action').length==1)
+  console.log('post js loading')
+  if ($('.like-action').length>1)
   {
     postViewPageLike()
   }else{
@@ -38,7 +38,8 @@ function postListPageLike()
 
 function postViewPageLike()
 {
-  $('.like-action').on('click',function(e){
+  $('body').on('click','.like-action', function(e){
+    console.log('like action on view page')
     var postId = $(this).data('id');
       $.ajax({
           url: "/ajaxlikes",
