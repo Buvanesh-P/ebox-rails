@@ -4,11 +4,7 @@
     <% else%>
 
        <div class="card" style="width: 18rem;">
-  <div class="card-header">
-    <% typeArr =  blob.content_type.split("/")%>
-    <%= typeArr[1]%>
-  </div>
-  <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush">
     <li class="list-group-item">
     <%= link_to rails_blob_path(blob, disposition: 'attachment') do  %>
       <%= blob.filename %> <i class='fa-solid fa-download'></i>
