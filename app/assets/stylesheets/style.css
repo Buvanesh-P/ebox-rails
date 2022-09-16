@@ -93,6 +93,44 @@
     --bs-btn-disabled-border-color: #198754;
 }
 
+.pagination {
+  display: inline-block;
+}
+.pagination > .prev{
+visibility: hidden;
+}
+
+.pagination > .prev > a::after{
+  visibility: visible;
+  content: '<<';
+  color: #3A3A38;
+}
+.pagination > .next{
+  visibility: hidden;
+}
+.pagination > .next > a::after{
+  visibility: visible;
+  content: '>>';
+  color: #3A3A38;
+}
+.pagination > span {
+  color: #3A3A38;
+  float: left;
+  padding: 8px 16px;
+  border-radius: 50%;
+}
+.pagination > span > a{
+  text-decoration: none;
+  color: #3A3A38;
+}
+
+.pagination >  .active {
+  background-color: #3A3A38;
+  color: white;
+  padding: 8px 16px;
+
+}
+
 @media only screen and (max-width: 600px) {
   .row-block > *{
     width: auto !important;
