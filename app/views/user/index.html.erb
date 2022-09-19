@@ -2,9 +2,11 @@
 
 <div class="container">
 <% if@userinfos.present?%>
-<%= image_tag(@userinfos.profile,style:"width:150px;height:150px",class:'rounded-circle')%>
-<%else%>
-<%= image_tag("/no-profile.jpg",style:"width:150px;height:150px",class:'rounded-circle') %>
+    <% if@userinfos.profile.persisted?%>
+        <%= image_tag(@userinfos.profile,style:"width:150px;height:150px",class:'rounded-circle')%>
+    <%else%>
+    <%= image_tag("/no-profile.jpg",style:"width:150px;height:150px",class:'rounded-circle') %>
+    <% end %>
 <% end %>
     <div class="row">
         <div class="col-md-6">
