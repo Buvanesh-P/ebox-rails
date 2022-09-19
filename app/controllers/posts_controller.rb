@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   def is_registered
     @user_info = Userinfo.find_by(users_id: current_user.id)
     if @user_info.nil?
-      redirect_to user_index_path, alert: "Please complete your profile"
+      redirect_to user_edit_path, alert: "Please complete your profile"
     end
   end
 
