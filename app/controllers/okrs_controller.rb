@@ -32,7 +32,9 @@ class OkrsController < ApplicationController
   # POST /okrs or /okrs.json
   def create
     @okr = Okr.new(okr_params)
-
+    userInfo = Userinfo.where(users_id: current_user.id)
+    userInfoId = userInfo.ids.join(', ')
+    @okr.userinfos_id = userInfoId
     respond_to do |format|
       if @okr.save
         format.html { redirect_to okr_url(@okr), notice: "Okr was successfully created." }
