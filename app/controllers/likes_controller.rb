@@ -18,7 +18,9 @@ class LikesController < ApplicationController
                 like_list: like_content
         }
         else
-            @post.like.create(user_id: current_user.id,userinfo_id: current_user.id)
+            userInfo = Userinfo.where(users_id: current_user.id)
+            userInfoId = userInfo.ids.join(', ')
+            @post.like.create(user_id: current_user.id,userinfo_id: userInfoId)
             like_content = ''
             if@post.like.count > 1
                 like_content = "You and #{(@post.like.count - 1)} other(s) liked"
