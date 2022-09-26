@@ -32,3 +32,4 @@
 
 #Ingore env file
 .env
+.vscode
