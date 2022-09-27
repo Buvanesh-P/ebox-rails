@@ -215,6 +215,8 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
+    omniauth-facebook (9.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
@@ -349,6 +351,7 @@ DEPENDENCIES
   jquery-datetimepicker-rails
   jquery-rails
   omniauth
+  omniauth-facebook
   omniauth-google-oauth2!
   omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 5.10)
