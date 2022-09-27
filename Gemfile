@@ -87,3 +87,4 @@ gem "omniauth"
 gem 'omniauth-google-oauth2', git: 'https://github.com/zquestz/omniauth-google-oauth2.git'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem 'rack-protection'
+gem 'omniauth-facebook'
