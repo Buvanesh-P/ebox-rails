@@ -83,3 +83,7 @@ gem 'jquery-datetimepicker-rails'
 gem "font-awesome-sass", "~> 6.2.0"
 gem 'aws-sdk-s3'
 gem 'rack-cors'
+gem "omniauth"
+gem 'omniauth-google-oauth2', git: 'https://github.com/zquestz/omniauth-google-oauth2.git'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'rack-protection'
