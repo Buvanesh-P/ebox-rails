@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{ sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
 
   post '/ajaxlikes',to: "likes#create"
+  get '/instagram/auth',to: "instagram#auth"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
